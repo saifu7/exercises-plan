@@ -1,0 +1,2319 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>30-Day Calisthenics Plan — Beginner Program (Squatwolf Reference)</title>
+  <meta name="description" content="A comprehensive 30-day calisthenics training plan for absolute beginners based on Squatwolf's foundational principles. Structured progressive overload, spine stability protocol, meal timing, and 3-month roadmap.">
+  <style>
+    /* ─── RESET ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ─── DESIGN TOKENS (Vignelli / Swiss International) ─── */
+    :root {
+      --black: #000000;
+      --white: #FFFFFF;
+      --red: #E2231A;
+      --red-hover: #C01B13;
+      --gray: #767676;
+      --gray-light: #E5E5E5;
+      --gray-bg: #F8F8F8;
+      --green: #1B8A3E;
+
+      --font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+      --fs-hero: 72px;
+      --fs-section: 44px;
+      --fs-week: 28px;
+      --fs-day: 22px;
+      --fs-body: 15px;
+      --fs-small: 12px;
+      --fs-mono: 13px;
+
+      --grid: 8px;
+    }
+
+    /* ─── BASE ─── */
+    html {
+      font-size: var(--fs-body);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      color: var(--black);
+      background: var(--white);
+      text-wrap: pretty;
+    }
+
+    /* ─── LAYOUT ─── */
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 calc(var(--grid) * 4);
+    }
+
+    /* ─── QUICK NAV BAR (SWISS GRID) ─── */
+    .nav-bar {
+      border-bottom: 2px solid var(--black);
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      font-size: var(--fs-small);
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-bar__inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: calc(var(--grid) * 1);
+      padding: calc(var(--grid) * 1) 0;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: calc(var(--grid) * 2);
+    }
+
+    .nav-link {
+      color: var(--black);
+      text-decoration: none;
+      padding: 4px 6px;
+      border-bottom: 2px solid transparent;
+      transition: all 0.15s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--red);
+      border-bottom-color: var(--red);
+    }
+
+    .nav-progress {
+      display: flex;
+      align-items: center;
+      gap: calc(var(--grid) * 1.5);
+      font-size: var(--fs-small);
+      color: var(--gray);
+    }
+
+    .nav-progress__bar {
+      width: 120px;
+      height: 6px;
+      background: var(--gray-light);
+      position: relative;
+    }
+
+    .nav-progress__fill {
+      height: 100%;
+      background: var(--red);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    /* ─── HEADER ─── */
+    .header {
+      padding: calc(var(--grid) * 8) 0 calc(var(--grid) * 5);
+      border-bottom: 4px solid var(--black);
+    }
+
+    .header__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: calc(var(--grid) * 4);
+    }
+
+    .header__number {
+      font-size: 180px;
+      font-weight: 700;
+      line-height: 0.8;
+      letter-spacing: -8px;
+      color: var(--gray-light);
+      display: block;
+      user-select: none;
+    }
+
+    .header__title {
+      font-size: var(--fs-hero);
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: -2px;
+      text-transform: uppercase;
+      margin-top: calc(var(--grid) * 2);
+      margin-bottom: calc(var(--grid) * 2.5);
+    }
+
+    .header__subtitle {
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--gray);
+      margin-bottom: calc(var(--grid) * 3);
+      max-width: 75ch;
+      line-height: 1.4;
+    }
+
+    .header__badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: calc(var(--grid) * 1);
+      margin-top: calc(var(--grid) * 2);
+    }
+
+    .badge {
+      font-size: var(--fs-small);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 10px;
+      border: 1px solid var(--black);
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .badge--solid {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .badge--red {
+      background: var(--red);
+      border-color: var(--red);
+      color: var(--white);
+    }
+
+    /* ─── SECTION RED BAR ─── */
+    .section-bar {
+      background: var(--red);
+      color: var(--white);
+      padding: calc(var(--grid) * 2) calc(var(--grid) * 3);
+      margin-top: calc(var(--grid) * 8);
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: calc(var(--grid) * 2);
+      scroll-margin-top: 60px;
+    }
+
+    .section-bar__left {
+      display: flex;
+      align-items: baseline;
+      gap: calc(var(--grid) * 2.5);
+    }
+
+    .section-bar__number {
+      font-size: var(--fs-section);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .section-bar__title {
+      font-size: var(--fs-day);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .section-bar__tag {
+      font-size: var(--fs-small);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.85;
+      font-weight: 500;
+    }
+
+    /* ─── SECTION INTRO TEXT ─── */
+    .section-intro {
+      padding: calc(var(--grid) * 2.5) 0;
+      font-size: var(--fs-body);
+      color: var(--gray);
+      line-height: 1.6;
+      border-bottom: 2px solid var(--black);
+      max-width: 90ch;
+    }
+
+    /* ─── 01: MEAL TIMING ─── */
+    .meal-timing {
+      margin-top: calc(var(--grid) * 3);
+    }
+
+    .meal-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0;
+      border: 1px solid var(--black);
+    }
+
+    .meal-slot {
+      border-right: 1px solid var(--black);
+      padding: calc(var(--grid) * 2.5) calc(var(--grid) * 1.5);
+      text-align: center;
+      background: var(--white);
+    }
+
+    .meal-slot:last-child {
+      border-right: none;
+    }
+
+    .meal-slot__time {
+      font-size: var(--fs-day);
+      font-weight: 700;
+      display: block;
+      margin-bottom: calc(var(--grid) * 0.5);
+    }
+
+    .meal-slot__label {
+      font-size: var(--fs-small);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--red);
+      display: block;
+      margin-bottom: calc(var(--grid) * 1);
+    }
+
+    .meal-slot__note {
+      font-size: var(--fs-small);
+      color: var(--gray);
+      line-height: 1.4;
+    }
+
+    .meal-rules-banner {
+      background: var(--gray-bg);
+      border: 1px solid var(--gray-light);
+      border-top: none;
+      padding: calc(var(--grid) * 2) calc(var(--grid) * 3);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: calc(var(--grid) * 2);
+      font-size: var(--fs-small);
+      color: var(--black);
+    }
+
+    /* ─── 02: 8 PRINCIPLES (SQUATWOLF BLUEPRINT) ─── */
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid var(--black);
+      border-top: none;
+      margin-top: calc(var(--grid) * 3);
+    }
+
+    .principle-card {
+      border-right: 1px solid var(--black);
+      border-bottom: 1px solid var(--black);
+      padding: calc(var(--grid) * 3) calc(var(--grid) * 2.5);
+      background: var(--white);
+      position: relative;
+    }
+
+    .principle-card:nth-child(4n) {
+      border-right: none;
+    }
+
+    .principle-card:nth-last-child(-n+4) {
+      border-bottom: none;
+    }
+
+    .principle-card__num {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--red);
+      line-height: 1;
+      margin-bottom: calc(var(--grid) * 1.5);
+      display: block;
+    }
+
+    .principle-card__title {
+      font-size: var(--fs-body);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: calc(var(--grid) * 1);
+    }
+
+    .principle-card__desc {
+      font-size: var(--fs-small);
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    /* ─── 03: SPINE STABILITY & JOINT CONTROL ─── */
+    .spine-box {
+      border: 2px solid var(--black);
+      margin-top: calc(var(--grid) * 3);
+      padding: calc(var(--grid) * 3);
+      background: var(--gray-bg);
+    }
+
+    .spine-box__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: calc(var(--grid) * 2);
+      border-bottom: 1px solid var(--black);
+      padding-bottom: calc(var(--grid) * 1.5);
+    }
+
+    .spine-box__title {
+      font-size: var(--fs-day);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .spine-box__why {
+      font-size: var(--fs-small);
+      font-weight: 700;
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .spine-drills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: calc(var(--grid) * 2);
+      margin-top: calc(var(--grid) * 2);
+    }
+
+    .spine-drill {
+      background: var(--white);
+      border: 1px solid var(--black);
+      padding: calc(var(--grid) * 2);
+    }
+
+    .spine-drill__tag {
+      font-size: var(--fs-small);
+      font-weight: 700;
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .spine-drill__name {
+      font-size: var(--fs-body);
+      font-weight: 700;
+      margin-bottom: calc(var(--grid) * 1);
+    }
+
+    .spine-drill__name a {
+      color: var(--black);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gray-light);
+    }
+
+    .spine-drill__name a:hover {
+      color: var(--red);
+      border-color: var(--red);
+    }
+
+    .spine-drill__cues {
+      font-size: var(--fs-small);
+      color: var(--gray);
+      line-height: 1.45;
+    }
+
+    /* ─── 04: TRAINING PLAN WEEKS ─── */
+    .week-header {
+      padding: calc(var(--grid) * 4) 0 calc(var(--grid) * 2);
+      border-bottom: 2px solid var(--black);
+      display: flex;
+      align-items: baseline;
+      gap: calc(var(--grid) * 2);
+      margin-top: calc(var(--grid) * 4);
+    }
+
+    .week-header__number {
+      font-size: var(--fs-section);
+      font-weight: 700;
+      color: var(--red);
+      line-height: 1;
+    }
+
+    .week-header__title {
+      font-size: var(--fs-week);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .week-header__focus {
+      font-size: var(--fs-body);
+      font-weight: 500;
+      color: var(--gray);
+      margin-left: auto;
+    }
+
+    .week-intro {
+      padding: calc(var(--grid) * 2) 0;
+      font-size: var(--fs-body);
+      color: var(--gray);
+      border-bottom: 1px solid var(--gray-light);
+      margin-bottom: calc(var(--grid) * 2);
+    }
+
+    /* ─── DAY CARDS & GRID ─── */
+    .days-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: calc(var(--grid) * 2);
+      margin-bottom: calc(var(--grid) * 4);
+    }
+
+    .day-card {
+      border: 1px solid var(--black);
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .day-card--completed {
+      background: #F8FAF8;
+      border-color: var(--green);
+    }
+
+    .day-card__header {
+      background: var(--black);
+      color: var(--white);
+      padding: calc(var(--grid) * 1.5) calc(var(--grid) * 2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: calc(var(--grid) * 1);
+    }
+
+    .day-card--completed .day-card__header {
+      background: #11381E;
+    }
+
+    .day-card__day {
+      font-size: var(--fs-body);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .day-card__meta {
+      display: flex;
+      align-items: center;
+      gap: calc(var(--grid) * 1.5);
+    }
+
+    .day-card__type {
+      font-size: var(--fs-small);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gray-light);
+    }
+
+    .day-card__type--rest {
+      color: #FFB3AE;
+    }
+
+    .day-card__time {
+      font-size: var(--fs-small);
+      font-weight: 700;
+      color: var(--white);
+      background: var(--red);
+      padding: 2px 8px;
+      white-space: nowrap;
+    }
+
+    .day-card__body {
+      padding: calc(var(--grid) * 2);
+      flex-grow: 1;
+    }
+
+    .day-card__footer {
+      padding: calc(var(--grid) * 1.5) calc(var(--grid) * 2);
+      border-top: 1px solid var(--gray-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--white);
+    }
+
+    .day-check-btn {
+      background: transparent;
+      border: 1px solid var(--black);
+      padding: 4px 10px;
+      font-size: var(--fs-small);
+      font-weight: 700;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: var(--font);
+      transition: all 0.15s ease;
+    }
+
+    .day-check-btn:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .day-card--completed .day-check-btn {
+      background: var(--green);
+      border-color: var(--green);
+      color: var(--white);
+    }
+
+    .day-check-status {
+      font-size: var(--fs-small);
+      font-weight: 700;
+      color: var(--gray);
+      text-transform: uppercase;
+    }
+
+    .day-card--completed .day-check-status {
+      color: var(--green);
+    }
+
+    /* ─── EXERCISE TABLE ─── */
+    .exercise-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--fs-body);
+    }
+
+    .exercise-table th {
+      text-align: left;
+      font-size: var(--fs-small);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gray);
+      padding: calc(var(--grid) * 0.75) 0;
+      border-bottom: 1px solid var(--black);
+    }
+
+    .exercise-table td {
+      padding: calc(var(--grid) * 1) 0;
+      border-bottom: 1px solid var(--gray-light);
+      vertical-align: middle;
+    }
+
+    .exercise-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .exercise-table td:first-child {
+      font-weight: 500;
+      padding-right: calc(var(--grid) * 2);
+    }
+
+    .exercise-table td:last-child {
+      text-align: right;
+      font-weight: 700;
+      color: var(--black);
+      white-space: nowrap;
+      font-family: var(--font);
+    }
+
+    .exercise-link {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid var(--gray-light);
+      transition: all 0.15s;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .exercise-link::after {
+      content: '↗';
+      font-size: 11px;
+      color: var(--gray);
+      transition: color 0.15s;
+    }
+
+    .exercise-link:hover {
+      border-bottom-color: var(--red);
+      color: var(--red);
+    }
+
+    .exercise-link:hover::after {
+      color: var(--red);
+    }
+
+    .rest-message {
+      font-size: var(--fs-day);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gray);
+      text-align: center;
+      padding: calc(var(--grid) * 4) 0 calc(var(--grid) * 1);
+    }
+
+    .rest-note {
+      font-size: var(--fs-body);
+      color: var(--gray);
+      text-align: center;
+      padding-bottom: calc(var(--grid) * 3);
+      max-width: 38ch;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* ─── 05: 3-MONTH PROGRESSION ROADMAP (SQUATWOLF) ─── */
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--black);
+      margin-top: calc(var(--grid) * 3);
+    }
+
+    .roadmap-col {
+      border-right: 1px solid var(--black);
+      padding: calc(var(--grid) * 3);
+      background: var(--white);
+    }
+
+    .roadmap-col:last-child {
+      border-right: none;
+    }
+
+    .roadmap-col__tag {
+      font-size: var(--fs-small);
+      font-weight: 700;
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: calc(var(--grid) * 1);
+    }
+
+    .roadmap-col__title {
+      font-size: var(--fs-day);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: calc(var(--grid) * 2);
+    }
+
+    .roadmap-col__list {
+      list-style: none;
+    }
+
+    .roadmap-col__list li {
+      font-size: var(--fs-body);
+      padding: calc(var(--grid) * 1) 0;
+      border-bottom: 1px solid var(--gray-light);
+      display: flex;
+      justify-content: space-between;
+      gap: calc(var(--grid) * 1);
+    }
+
+    .roadmap-col__list li span:last-child {
+      font-weight: 700;
+      color: var(--gray);
+      text-align: right;
+    }
+
+    /* ─── 06: EXERCISE GUIDE SECTION ─── */
+    .guide-section {
+      padding: calc(var(--grid) * 3) 0;
+    }
+
+    .guide-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: calc(var(--grid) * 1);
+      margin-bottom: calc(var(--grid) * 2.5);
+    }
+
+    .guide-filter-btn {
+      font-size: var(--fs-small);
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border: 1px solid var(--black);
+      background: var(--white);
+      cursor: pointer;
+      font-family: var(--font);
+    }
+
+    .guide-filter-btn.active {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: calc(var(--grid) * 1);
+    }
+
+    .guide-item {
+      border: 1px solid var(--gray-light);
+      padding: calc(var(--grid) * 1.5) calc(var(--grid) * 2);
+      font-size: var(--fs-small);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--black);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      background: var(--white);
+      transition: all 0.15s;
+    }
+
+    .guide-item:hover {
+      border-color: var(--red);
+      background: var(--gray-bg);
+    }
+
+    .guide-item__folder {
+      color: var(--gray);
+      font-weight: 400;
+      font-size: 11px;
+      font-family: monospace;
+    }
+
+    /* ─── 07: FAQS & NOTES ─── */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: calc(var(--grid) * 3);
+      margin-top: calc(var(--grid) * 3);
+    }
+
+    .faq-card {
+      border-left: 4px solid var(--red);
+      padding-left: calc(var(--grid) * 2.5);
+      background: var(--white);
+    }
+
+    .faq-card__q {
+      font-size: var(--fs-body);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: calc(var(--grid) * 1);
+    }
+
+    .faq-card__a {
+      font-size: var(--fs-body);
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: var(--black);
+      color: var(--gray-light);
+      padding: calc(var(--grid) * 5) calc(var(--grid) * 4);
+      font-size: var(--fs-small);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: calc(var(--grid) * 10);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: calc(var(--grid) * 2);
+    }
+
+    .footer a {
+      color: var(--white);
+      text-decoration: underline;
+    }
+
+    /* ─── IMAGE PREVIEW OVERLAY ─── */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.94);
+      z-index: 1000;
+      overflow-y: auto;
+      padding: calc(var(--grid) * 6) calc(var(--grid) * 4);
+    }
+
+    .overlay--active {
+      display: block;
+    }
+
+    .overlay__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      max-width: 960px;
+      margin: 0 auto calc(var(--grid) * 2);
+    }
+
+    .overlay__title {
+      font-size: var(--fs-week);
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .overlay__close {
+      font-size: var(--fs-day);
+      font-weight: 700;
+      color: var(--white);
+      background: var(--red);
+      border: none;
+      padding: calc(var(--grid) * 1) calc(var(--grid) * 2.5);
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-family: var(--font);
+      transition: background 0.15s;
+    }
+
+    .overlay__close:hover {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .overlay__folder-path {
+      font-size: var(--fs-small);
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      max-width: 960px;
+      margin: 0 auto calc(var(--grid) * 3);
+      font-family: monospace;
+    }
+
+    .overlay__gallery {
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: calc(var(--grid) * 2.5);
+    }
+
+    .overlay__img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 2px solid var(--white);
+    }
+
+    .overlay__img-label {
+      font-size: var(--fs-small);
+      color: var(--gray-light);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: calc(var(--grid) * 1);
+      font-family: monospace;
+    }
+
+    .overlay__empty {
+      color: var(--gray-light);
+      font-size: var(--fs-body);
+      text-align: center;
+      padding: calc(var(--grid) * 8) 0;
+      grid-column: 1 / -1;
+      border: 1px dashed var(--gray);
+      background: rgba(255, 255, 255, 0.05);
+      line-height: 1.8;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .principles-grid { grid-template-columns: repeat(2, 1fr); }
+      .principles-card:nth-child(2n) { border-right: none; }
+      .spine-drills { grid-template-columns: repeat(2, 1fr); }
+      .roadmap-grid { grid-template-columns: 1fr; }
+      .roadmap-col { border-right: none; border-bottom: 1px solid var(--black); }
+      .roadmap-col:last-child { border-bottom: none; }
+    }
+
+    @media (max-width: 768px) {
+      .header__top { flex-direction: column; }
+      .header__number { font-size: 110px; letter-spacing: -4px; }
+      .header__title { font-size: 38px; letter-spacing: -1px; }
+      .days-grid { grid-template-columns: 1fr; }
+      .meal-grid { grid-template-columns: repeat(3, 1fr); }
+      .meal-slot { border-bottom: 1px solid var(--black); }
+      .meal-slot:nth-child(3) { border-right: none; }
+      .meal-slot:nth-last-child(-n+3) { border-bottom: none; }
+      .section-bar { flex-direction: column; gap: calc(var(--grid) * 1); align-items: flex-start; }
+      .week-header { flex-direction: column; gap: calc(var(--grid) * 1); }
+      .week-header__focus { margin-left: 0; }
+      .principles-grid { grid-template-columns: 1fr; }
+      .principle-card { border-right: none; border-bottom: 1px solid var(--black); }
+      .spine-drills { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .header__number { font-size: 80px; letter-spacing: -2px; }
+      .header__title { font-size: 28px; }
+      .meal-grid { grid-template-columns: repeat(2, 1fr); }
+      .meal-slot:nth-child(3) { border-right: 1px solid var(--black); }
+      .meal-slot:nth-child(even) { border-right: none; }
+      .meal-slot { border-bottom: 1px solid var(--black); }
+      .meal-slot:nth-last-child(-n+2) { border-bottom: none; }
+      .guide-grid { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      .nav-bar { display: none; }
+      .day-card { break-inside: avoid; }
+      .section-bar { break-before: page; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- QUICK STICKY NAVIGATION BAR                            -->
+  <!-- ════════════════════════════════════════════════════════ -->
+  <nav class="nav-bar">
+    <div class="container">
+      <div class="nav-bar__inner">
+        <div class="nav-links">
+          <a class="nav-link" href="#section-meals">01 Meal Timing</a>
+          <a class="nav-link" href="#section-principles">02 8 Principles</a>
+          <a class="nav-link" href="#section-spine">03 Spine Stability</a>
+          <a class="nav-link" href="#section-plan">04 30-Day Plan</a>
+          <a class="nav-link" href="#section-roadmap">05 3-Month Roadmap</a>
+          <a class="nav-link" href="#section-folders">06 Exercise Folders</a>
+          <a class="nav-link" href="#section-faqs">07 FAQs</a>
+        </div>
+        <div class="nav-progress">
+          <span>Completed: <strong id="progressCount">0</strong> / 30</span>
+          <div class="nav-progress__bar">
+            <div class="nav-progress__fill" id="progressBar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- HEADER                                                  -->
+  <!-- ════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <header class="header">
+      <div class="header__top">
+        <div>
+          <span class="header__number">30</span>
+          <h1 class="header__title">Day Calisthenics<br>Beginner Program</h1>
+          <p class="header__subtitle">A scientifically structured bodyweight routine for absolute beginners. Built on progressive overload, dedicated spinal stabilization, joint control, and timed nutrition based on Squatwolf fitness benchmarks.</p>
+          <div class="header__badges">
+            <span class="badge badge--solid">Zero Equipment Needed</span>
+            <span class="badge">4 Progressive Weeks</span>
+            <span class="badge">25–40 Min / Day</span>
+            <span class="badge badge--red">Spine &amp; Core Protected</span>
+            <span class="badge">Full Interactive Tracker</span>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <div class="container">
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- SECTION 01: MEAL TIMING                                  -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <div class="section-bar" id="section-meals">
+      <div class="section-bar__left">
+        <span class="section-bar__number">01</span>
+        <span class="section-bar__title">Daily Meal Timing Schedule</span>
+      </div>
+      <span class="section-bar__tag">Energy &amp; Recovery Windows</span>
+    </div>
+    <p class="section-intro">Calisthenics demands high neurological recruitment and glycogen output. Follow these meal timing windows to maximize energy output during sets and support muscle repair post-workout. Focus on when to eat.</p>
+
+    <div class="meal-timing">
+      <div class="meal-grid">
+        <div class="meal-slot">
+          <span class="meal-slot__time">07:30</span>
+          <span class="meal-slot__label">Breakfast</span>
+          <span class="meal-slot__note">Within 1 hr of waking. Kickstarts metabolism and restores hydration.</span>
+        </div>
+        <div class="meal-slot">
+          <span class="meal-slot__time">10:30</span>
+          <span class="meal-slot__label">Mid-Morning</span>
+          <span class="meal-slot__note">3 hrs after breakfast. Light sustained energy snack.</span>
+        </div>
+        <div class="meal-slot">
+          <span class="meal-slot__time">13:30</span>
+          <span class="meal-slot__label">Lunch</span>
+          <span class="meal-slot__note">Primary daytime fueling window. Satisfying and clean.</span>
+        </div>
+        <div class="meal-slot">
+          <span class="meal-slot__time">16:30</span>
+          <span class="meal-slot__label">Pre-Workout</span>
+          <span class="meal-slot__note">60–90 min before training. Easily digestible complex carbs.</span>
+        </div>
+        <div class="meal-slot" style="background: #FFF9F9; border-left: 2px solid var(--red); border-right: 2px solid var(--red);">
+          <span class="meal-slot__time" style="color: var(--red);">18:30</span>
+          <span class="meal-slot__label" style="color: var(--red);">Post-Workout</span>
+          <span class="meal-slot__note">Within 45 min after finishing. Critical protein &amp; repair window.</span>
+        </div>
+        <div class="meal-slot">
+          <span class="meal-slot__time">20:30</span>
+          <span class="meal-slot__label">Dinner</span>
+          <span class="meal-slot__note">At least 2 hrs before sleep. Light and easy to digest.</span>
+        </div>
+      </div>
+      <div class="meal-rules-banner">
+        <span>&bull; Hydration: Drink 500ml water upon waking + 2.5–3L throughout the day</span>
+        <span>&bull; Pre-Workout Rule: Never train on an overloaded stomach or completely empty tank</span>
+        <span>&bull; Evening Rule: Finish eating 2 hours before bed for deep restorative sleep</span>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- SECTION 02: 8 GOLDEN PRINCIPLES (SQUATWOLF)             -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <div class="section-bar" id="section-principles">
+      <div class="section-bar__left">
+        <span class="section-bar__number">02</span>
+        <span class="section-bar__title">8 Principles for Beginners</span>
+      </div>
+      <span class="section-bar__tag">Squatwolf Calisthenics Blueprint</span>
+    </div>
+    <p class="section-intro">Calisthenics transforms your physique by developing relative strength, mobility, and functional movement. These 8 rules ensure consistent injury-free progress throughout the next 30 days and beyond.</p>
+
+    <div class="principles-grid">
+      <div class="principle-card">
+        <span class="principle-card__num">01</span>
+        <h3 class="principle-card__title">Form Over Repetitions</h3>
+        <p class="principle-card__desc">5 clean push-ups with locked core and full chest depth build far more muscle and tendon strength than 15 sloppy, sagging reps. Quality always precedes quantity.</p>
+      </div>
+      <div class="principle-card">
+        <span class="principle-card__num">02</span>
+        <h3 class="principle-card__title">The 5-Minute Warmup</h3>
+        <p class="principle-card__desc">Never skip your warmup. Arm circles, hip openers, and cat-cows lubricate joint capsules, activate the rotator cuff, and prime your central nervous system.</p>
+      </div>
+      <div class="principle-card">
+        <span class="principle-card__num">03</span>
+        <h3 class="principle-card__title">Progressive Overload</h3>
+        <p class="principle-card__desc">Progress does not just mean more reps. Increase hold times, slow down lowering tempos (3s down), decrease rest intervals, or advance to harder lever angles.</p>
+      </div>
+      <div class="principle-card">
+        <span class="principle-card__num">04</span>
+        <h3 class="principle-card__title">Mind-Muscle Connection</h3>
+        <p class="principle-card__desc">Consciously squeeze your glutes at the top of a squat and brace your lats during push-ups. Intentional muscle recruitment protects joints and prevents strain.</p>
+      </div>
+      <div class="principle-card">
+        <span class="principle-card__num">05</span>
+        <h3 class="principle-card__title">Active Listening &amp; Rest</h3>
+        <p class="principle-card__desc">Muscles grow and remodel during rest, not during workouts. Muscle tightness is normal; sharp joint pain is not. Take scheduled active recovery days seriously.</p>
+      </div>
+      <div class="principle-card">
+        <span class="principle-card__num">06</span>
+        <h3 class="principle-card__title">Spinal Stability Focus</h3>
+        <p class="principle-card__desc">Sedentary lifestyles weaken spinal stabilizers. Engaging transverse abdominis and lumbar erectors through dead bugs and hollow holds prevents back pain.</p>
+      </div>
+      <div class="principle-card">
+        <span class="principle-card__num">07</span>
+        <h3 class="principle-card__title">Consistent Nourishment</h3>
+        <p class="principle-card__desc">Protein-rich nutrition paired with proper meal timing fuels muscle protein synthesis and keeps your energy elevated across every calisthenic session.</p>
+      </div>
+      <div class="principle-card">
+        <span class="principle-card__num">08</span>
+        <h3 class="principle-card__title">Habit Over Motivation</h3>
+        <p class="principle-card__desc">Motivation fades; discipline compounds. Celebrate small daily wins, track your consistency, and enjoy mastering your own bodyweight movements.</p>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- SECTION 03: SPINE STABILITY & JOINT CONTROL PROTOCOL    -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <div class="section-bar" id="section-spine">
+      <div class="section-bar__left">
+        <span class="section-bar__number">03</span>
+        <span class="section-bar__title">Spine Stability &amp; Joint Control</span>
+      </div>
+      <span class="section-bar__tag">Injury Prevention Protocol</span>
+    </div>
+    <p class="section-intro">A critical component highlighted by calisthenics science is <strong>anti-extension, anti-rotation, and pelvic control</strong>. Beginners often fail at push-ups or squats due to a sagging lower back. These drills protect your lumbar spine and build indestructible joint stability.</p>
+
+    <div class="spine-box">
+      <div class="spine-box__header">
+        <span class="spine-box__title">The 6 Core Proprioception &amp; Stabilization Movements</span>
+        <span class="spine-box__why">Embedded Across Weekly Programming</span>
+      </div>
+      <div class="spine-drills">
+        <div class="spine-drill">
+          <span class="spine-drill__tag">Anti-Extension</span>
+          <h4 class="spine-drill__name"><a class="exercise-link" href="dead-bug/">Dead Bug</a></h4>
+          <p class="spine-drill__cues">Press lower back flush against floor. Extend opposite arm/leg without arching lumbar spine. Builds deep transverse abdominis control.</p>
+        </div>
+        <div class="spine-drill">
+          <span class="spine-drill__tag">Anti-Rotation</span>
+          <h4 class="spine-drill__name"><a class="exercise-link" href="bird-dog/">Bird Dog</a></h4>
+          <p class="spine-drill__cues">From hands and knees, reach opposite limbs while keeping hips completely level. Trains multifidus and spinal erectors.</p>
+        </div>
+        <div class="spine-drill">
+          <span class="spine-drill__tag">Pelvic Compression</span>
+          <h4 class="spine-drill__name"><a class="exercise-link" href="hollow-body-hold/">Hollow Body Hold</a></h4>
+          <p class="spine-drill__cues">Tuck pelvis, press lower back into ground, shoulders off floor. The universal calisthenics gymnastics posture foundation.</p>
+        </div>
+        <div class="spine-drill">
+          <span class="spine-drill__tag">Shoulder &amp; Posterior Chain</span>
+          <h4 class="spine-drill__name"><a class="exercise-link" href="inchworms/">Inchworms</a></h4>
+          <p class="spine-drill__cues">Hinge at hips, walk hands forward into plank, walk back. Builds hamstring flexibility, shoulder stability, and core bracing.</p>
+        </div>
+        <div class="spine-drill">
+          <span class="spine-drill__tag">Lateral Stability</span>
+          <h4 class="spine-drill__name"><a class="exercise-link" href="side-plank/">Side Plank</a></h4>
+          <p class="spine-drill__cues">Straight diagonal line from head to heels. Strengthens quadratus lumborum and obliques, relieving lumbar shearing forces.</p>
+        </div>
+        <div class="spine-drill">
+          <span class="spine-drill__tag">Segmental Mobility</span>
+          <h4 class="spine-drill__name"><a class="exercise-link" href="cat-cow-stretch/">Cat-Cow Stretch</a></h4>
+          <p class="spine-drill__cues">Segmental flexion and extension of the entire thoracic and lumbar spine. Relieves disc compression and lubricates facet joints.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- SECTION 04: TRAINING PLAN (30 DAYS)                      -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <div class="section-bar" id="section-plan">
+      <div class="section-bar__left">
+        <span class="section-bar__number">04</span>
+        <span class="section-bar__title">Training Plan — 30 Days</span>
+      </div>
+      <span class="section-bar__tag">Progressive Overload Calendar</span>
+    </div>
+    <p class="section-intro">Four structured weeks with exact daily time commitments. Click any exercise to view photo guides from its folder. Check the box at the bottom of each card as you complete your day.</p>
+
+    <!-- ──────── WEEK 1 ──────── -->
+    <div class="week-header">
+      <span class="week-header__number">01</span>
+      <span class="week-header__title">Week One — Foundation &amp; Form</span>
+      <span class="week-header__focus">Sets: 3 &bull; Rest: 60–90s &bull; Focus: Quality</span>
+    </div>
+    <p class="week-intro">Week 1 establishes movement neural pathways. Wall push-ups, assisted pull-ups / dead hangs, and bodyweight squats introduce fundamental mechanics without joint strain.</p>
+
+    <div class="days-grid">
+      <!-- Day 1 -->
+      <div class="day-card" id="card-day-1">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 01 — Mon</span>
+          <div class="day-card__meta">
+            <span class="day-card__type">Full Body Focus</span>
+            <span class="day-card__time">~25 min</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <table class="exercise-table">
+            <thead><tr><th>Exercise</th><th>Volume</th></tr></thead>
+            <tbody>
+              <tr><td><a class="exercise-link" href="wall-push-ups/">Wall Push-Ups</a></td><td>3 &times; 10</td></tr>
+              <tr><td><a class="exercise-link" href="bodyweight-squats/">Bodyweight Squats</a></td><td>3 &times; 12</td></tr>
+              <tr><td><a class="exercise-link" href="plank-hold/">Plank Hold</a></td><td>3 &times; 20s</td></tr>
+              <tr><td><a class="exercise-link" href="jumping-jacks/">Jumping Jacks</a></td><td>3 &times; 30s</td></tr>
+              <tr><td><a class="exercise-link" href="arm-circles/">Arm Circles</a></td><td>2 &times; 20</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(1)">Mark Complete</button>
+        </div>
+      </div>
+
+      <!-- Day 2 -->
+      <div class="day-card" id="card-day-2">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 02 — Tue</span>
+          <div class="day-card__meta">
+            <span class="day-card__type">Upper Body &amp; Posture</span>
+            <span class="day-card__time">~25 min</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <table class="exercise-table">
+            <thead><tr><th>Exercise</th><th>Volume</th></tr></thead>
+            <tbody>
+              <tr><td><a class="exercise-link" href="dead-hang/">Dead Hang (door/bar)</a></td><td>3 &times; 15s</td></tr>
+              <tr><td><a class="exercise-link" href="tricep-dips/">Tricep Dips (chair)</a></td><td>3 &times; 8</td></tr>
+              <tr><td><a class="exercise-link" href="shoulder-taps/">Shoulder Taps (knees/wall)</a></td><td>3 &times; 8 each</td></tr>
+              <tr><td><a class="exercise-link" href="incline-push-ups/">Incline Push-Ups</a></td><td>2 &times; 6</td></tr>
+              <tr><td><a class="exercise-link" href="superman-hold/">Superman Hold</a></td><td>3 &times; 12s</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(2)">Mark Complete</button>
+        </div>
+      </div>
+
+      <!-- Day 3 -->
+      <div class="day-card" id="card-day-3">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 03 — Wed</span>
+          <div class="day-card__meta">
+            <span class="day-card__type">Lower Body Focus</span>
+            <span class="day-card__time">~25 min</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <table class="exercise-table">
+            <thead><tr><th>Exercise</th><th>Volume</th></tr></thead>
+            <tbody>
+              <tr><td><a class="exercise-link" href="forward-lunges/">Forward Lunges</a></td><td>3 &times; 8 each</td></tr>
+              <tr><td><a class="exercise-link" href="glute-bridges/">Glute Bridges</a></td><td>3 &times; 12</td></tr>
+              <tr><td><a class="exercise-link" href="standing-calf-raises/">Calf Raises</a></td><td>3 &times; 15</td></tr>
+              <tr><td><a class="exercise-link" href="wall-sit/">Wall Sit</a></td><td>3 &times; 20s</td></tr>
+              <tr><td><a class="exercise-link" href="leg-swings/">Leg Swings</a></td><td>2 &times; 10 each</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(3)">Mark Complete</button>
+        </div>
+      </div>
+
+      <!-- Day 4 -->
+      <div class="day-card" id="card-day-4">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 04 — Thu</span>
+          <div class="day-card__meta">
+            <span class="day-card__type day-card__type--rest">Active Rest</span>
+            <span class="day-card__time">~20 min</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <p class="rest-message">Active Recovery</p>
+          <p class="rest-note">20-minute brisk walk + gentle hamstring, hip flexor, and chest stretching. Drink plenty of water.</p>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(4)">Mark Complete</button>
+        </div>
+      </div>
+
+      <!-- Day 5 -->
+      <div class="day-card" id="card-day-5">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 05 — Fri</span>
+          <div class="day-card__meta">
+            <span class="day-card__type">Core &amp; Spine Strength</span>
+            <span class="day-card__time">~25 min</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <table class="exercise-table">
+            <thead><tr><th>Exercise</th><th>Volume</th></tr></thead>
+            <tbody>
+              <tr><td><a class="exercise-link" href="dead-bug/">Dead Bug</a></td><td>3 &times; 8 each</td></tr>
+              <tr><td><a class="exercise-link" href="bird-dog/">Bird Dog</a></td><td>3 &times; 8 each</td></tr>
+              <tr><td><a class="exercise-link" href="lying-leg-raises/">Lying Leg Raises</a></td><td>3 &times; 8</td></tr>
+              <tr><td><a class="exercise-link" href="cat-cow-stretch/">Cat-Cow Stretch</a></td><td>2 &times; 10</td></tr>
+              <tr><td><a class="exercise-link" href="plank-hold/">Plank Hold</a></td><td>3 &times; 20s</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(5)">Mark Complete</button>
+        </div>
+      </div>
+
+      <!-- Day 6 -->
+      <div class="day-card" id="card-day-6">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 06 — Sat</span>
+          <div class="day-card__meta">
+            <span class="day-card__type">Cardio &amp; Mobility</span>
+            <span class="day-card__time">~25 min</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <table class="exercise-table">
+            <thead><tr><th>Exercise</th><th>Volume</th></tr></thead>
+            <tbody>
+              <tr><td><a class="exercise-link" href="burpees/">Burpees (step-back)</a></td><td>3 &times; 6</td></tr>
+              <tr><td><a class="exercise-link" href="high-knees/">High Knees</a></td><td>3 &times; 20s</td></tr>
+              <tr><td><a class="exercise-link" href="jumping-jacks/">Jumping Jacks</a></td><td>3 &times; 25</td></tr>
+              <tr><td><a class="exercise-link" href="deep-squat-hold/">Deep Squat Hold</a></td><td>2 &times; 20s</td></tr>
+              <tr><td><a class="exercise-link" href="arm-circles/">Arm &amp; Hip Circles</a></td><td>2 &times; 15</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(6)">Mark Complete</button>
+        </div>
+      </div>
+
+      <!-- Day 7 -->
+      <div class="day-card" id="card-day-7">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 07 — Sun</span>
+          <div class="day-card__meta">
+            <span class="day-card__type day-card__type--rest">Full Rest</span>
+            <span class="day-card__time">Relax</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <p class="rest-message">Rest &amp; Reflect</p>
+          <p class="rest-note">Full day of rest. Reflect on Week 1. You completed your foundation week. Ready for Week 2.</p>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(7)">Mark Complete</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────── WEEK 2 ──────── -->
+    <div class="week-header">
+      <span class="week-header__number">02</span>
+      <span class="week-header__title">Week Two — Increasing Intensity</span>
+      <span class="week-header__focus">Sets: 4 &bull; Rest: 60s &bull; Focus: Volume</span>
+    </div>
+    <p class="week-intro">Week 2 progresses to 4 sets on primary lifts. Introduce knee push-ups, chair tricep dips, and slow mountain climbers. Control the eccentric phase.</p>
+
+    <div class="days-grid">
+      <!-- Day 8 -->
+      <div class="day-card" id="card-day-8">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 08 — Mon</span>
+          <div class="day-card__meta">
+            <span class="day-card__type">Full Body Workout</span>
+            <span class="day-card__time">~30 min</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <table class="exercise-table">
+            <thead><tr><th>Exercise</th><th>Volume</th></tr></thead>
+            <tbody>
+              <tr><td><a class="exercise-link" href="knee-push-ups/">Knee Push-Ups</a></td><td>4 &times; 10</td></tr>
+              <tr><td><a class="exercise-link" href="bodyweight-squats/">Bodyweight Squats</a></td><td>4 &times; 15</td></tr>
+              <tr><td><a class="exercise-link" href="plank-hold/">Plank Hold</a></td><td>4 &times; 25s</td></tr>
+              <tr><td><a class="exercise-link" href="jumping-jacks/">Jumping Jacks</a></td><td>4 &times; 35s</td></tr>
+              <tr><td><a class="exercise-link" href="inchworms/">Inchworms</a></td><td>3 &times; 5</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(8)">Mark Complete</button>
+        </div>
+      </div>
+
+      <!-- Day 9 -->
+      <div class="day-card" id="card-day-9">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 09 — Tue</span>
+          <div class="day-card__meta">
+            <span class="day-card__type">Upper Body Focus</span>
+            <span class="day-card__time">~30 min</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <table class="exercise-table">
+            <thead><tr><th>Exercise</th><th>Volume</th></tr></thead>
+            <tbody>
+              <tr><td><a class="exercise-link" href="dead-hang/">Dead Hang (pull-up prep)</a></td><td>4 &times; 18s</td></tr>
+              <tr><td><a class="exercise-link" href="tricep-dips/">Tricep Dips (chair)</a></td><td>4 &times; 10</td></tr>
+              <tr><td><a class="exercise-link" href="shoulder-taps/">Shoulder Taps (plank)</a></td><td>4 &times; 10 each</td></tr>
+              <tr><td><a class="exercise-link" href="incline-push-ups/">Incline Push-Ups</a></td><td>3 &times; 8</td></tr>
+              <tr><td><a class="exercise-link" href="arm-circles/">Arm Circles</a></td><td>3 &times; 15</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(9)">Mark Complete</button>
+        </div>
+      </div>
+
+      <!-- Day 10 -->
+      <div class="day-card" id="card-day-10">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 10 — Wed</span>
+          <div class="day-card__meta">
+            <span class="day-card__type">Lower Body Focus</span>
+            <span class="day-card__time">~30 min</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <table class="exercise-table">
+            <thead><tr><th>Exercise</th><th>Volume</th></tr></thead>
+            <tbody>
+              <tr><td><a class="exercise-link" href="forward-lunges/">Forward Lunges</a></td><td>4 &times; 10 each</td></tr>
+              <tr><td><a class="exercise-link" href="glute-bridges/">Glute Bridges</a></td><td>4 &times; 15</td></tr>
+              <tr><td><a class="exercise-link" href="standing-calf-raises/">Calf Raises</a></td><td>4 &times; 20</td></tr>
+              <tr><td><a class="exercise-link" href="wall-sit/">Wall Sit</a></td><td>3 &times; 30s</td></tr>
+              <tr><td><a class="exercise-link" href="bodyweight-squats/">Squats (slow tempo)</a></td><td>3 &times; 12</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(10)">Mark Complete</button>
+        </div>
+      </div>
+
+      <!-- Day 11 -->
+      <div class="day-card" id="card-day-11">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 11 — Thu</span>
+          <div class="day-card__meta">
+            <span class="day-card__type day-card__type--rest">Active Rest</span>
+            <span class="day-card__time">~25 min</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <p class="rest-message">Active Recovery</p>
+          <p class="rest-note">25 min brisk outdoor walk + deep hip and quad stretching. Hydrate with lemon water.</p>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(11)">Mark Complete</button>
+        </div>
+      </div>
+
+      <!-- Day 12 -->
+      <div class="day-card" id="card-day-12">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 12 — Fri</span>
+          <div class="day-card__meta">
+            <span class="day-card__type">Core &amp; Obliques</span>
+            <span class="day-card__time">~30 min</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <table class="exercise-table">
+            <thead><tr><th>Exercise</th><th>Volume</th></tr></thead>
+            <tbody>
+              <tr><td><a class="exercise-link" href="sit-ups/">Sit-Ups / Crunches</a></td><td>4 &times; 12</td></tr>
+              <tr><td><a class="exercise-link" href="russian-twists/">Russian Twists</a></td><td>4 &times; 15 each</td></tr>
+              <tr><td><a class="exercise-link" href="lying-leg-raises/">Lying Leg Raises</a></td><td>4 &times; 10</td></tr>
+              <tr><td><a class="exercise-link" href="mountain-climbers/">Mountain Climbers (slow)</a></td><td>3 &times; 12 each</td></tr>
+              <tr><td><a class="exercise-link" href="dead-bug/">Dead Bug</a></td><td>3 &times; 10 each</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(12)">Mark Complete</button>
+        </div>
+      </div>
+
+      <!-- Day 13 -->
+      <div class="day-card" id="card-day-13">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 13 — Sat</span>
+          <div class="day-card__meta">
+            <span class="day-card__type">Cardio &amp; Mobility</span>
+            <span class="day-card__time">~30 min</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <table class="exercise-table">
+            <thead><tr><th>Exercise</th><th>Volume</th></tr></thead>
+            <tbody>
+              <tr><td><a class="exercise-link" href="burpees/">Burpees</a></td><td>4 &times; 8</td></tr>
+              <tr><td><a class="exercise-link" href="high-knees/">High Knees</a></td><td>4 &times; 25s</td></tr>
+              <tr><td><a class="exercise-link" href="jumping-jacks/">Jumping Jacks</a></td><td>4 &times; 30</td></tr>
+              <tr><td><a class="exercise-link" href="deep-squat-hold/">Deep Squat Hold</a></td><td>3 &times; 25s</td></tr>
+              <tr><td><a class="exercise-link" href="cat-cow-stretch/">Cat-Cow Mobility</a></td><td>2 &times; 12</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(13)">Mark Complete</button>
+        </div>
+      </div>
+
+      <!-- Day 14 -->
+      <div class="day-card" id="card-day-14">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 14 — Sun</span>
+          <div class="day-card__meta">
+            <span class="day-card__type day-card__type--rest">Full Rest</span>
+            <span class="day-card__time">Relax</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <p class="rest-message">Midpoint Milestone</p>
+          <p class="rest-note">Two weeks completed. Halfway mark! Take complete physical rest and recharge for full push-up progressions in Week 3.</p>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(14)">Mark Complete</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────── WEEK 3 ──────── -->
+    <div class="week-header">
+      <span class="week-header__number">03</span>
+      <span class="week-header__title">Week Three — Mastering Movements</span>
+      <span class="week-header__focus">Sets: 5 &bull; Rest: 45–60s &bull; Focus: Strength</span>
+    </div>
+    <p class="week-intro">Week 3 introduces standard floor push-ups, side planks for anti-lateral flexion, and hollow body holds. Reps increase; maintain strict biomechanics.</p>
+
+    <div class="days-grid">
+      <!-- Day 15 -->
+      <div class="day-card" id="card-day-15">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 15 — Mon</span>
+          <div class="day-card__meta">
+            <span class="day-card__type">Full Body Strength</span>
+            <span class="day-card__time">~32 min</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <table class="exercise-table">
+            <thead><tr><th>Exercise</th><th>Volume</th></tr></thead>
+            <tbody>
+              <tr><td><a class="exercise-link" href="push-ups-full/">Push-Ups (standard)</a></td><td>5 &times; 6</td></tr>
+              <tr><td><a class="exercise-link" href="bodyweight-squats/">Bodyweight Squats</a></td><td>5 &times; 20</td></tr>
+              <tr><td><a class="exercise-link" href="plank-hold/">Plank Hold</a></td><td>4 &times; 35s</td></tr>
+              <tr><td><a class="exercise-link" href="hollow-body-hold/">Hollow Body Hold</a></td><td>3 &times; 20s</td></tr>
+              <tr><td><a class="exercise-link" href="jumping-jacks/">Jumping Jacks</a></td><td>4 &times; 40s</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(15)">Mark Complete</button>
+        </div>
+      </div>
+
+      <!-- Day 16 -->
+      <div class="day-card" id="card-day-16">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 16 — Tue</span>
+          <div class="day-card__meta">
+            <span class="day-card__type">Upper Body Push &amp; Pull</span>
+            <span class="day-card__time">~35 min</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <table class="exercise-table">
+            <thead><tr><th>Exercise</th><th>Volume</th></tr></thead>
+            <tbody>
+              <tr><td><a class="exercise-link" href="pull-ups/">Assisted Pull-Ups / Hang</a></td><td>4 &times; 5 (or 25s hang)</td></tr>
+              <tr><td><a class="exercise-link" href="tricep-dips/">Tricep Dips (bench/chair)</a></td><td>4 &times; 12</td></tr>
+              <tr><td><a class="exercise-link" href="shoulder-taps/">Shoulder Taps</a></td><td>4 &times; 12 each</td></tr>
+              <tr><td><a class="exercise-link" href="diamond-knee-push-ups/">Diamond Knee Push-Ups</a></td><td>3 &times; 6</td></tr>
+              <tr><td><a class="exercise-link" href="dead-hang/">Dead Hang</a></td><td>3 &times; 20s</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(16)">Mark Complete</button>
+        </div>
+      </div>
+
+      <!-- Day 17 -->
+      <div class="day-card" id="card-day-17">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 17 — Wed</span>
+          <div class="day-card__meta">
+            <span class="day-card__type">Lower Body Power</span>
+            <span class="day-card__time">~35 min</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <table class="exercise-table">
+            <thead><tr><th>Exercise</th><th>Volume</th></tr></thead>
+            <tbody>
+              <tr><td><a class="exercise-link" href="reverse-lunges/">Reverse Lunges</a></td><td>4 &times; 12 each</td></tr>
+              <tr><td><a class="exercise-link" href="single-leg-glute-bridge/">Single-Leg Glute Bridge</a></td><td>3 &times; 8 each</td></tr>
+              <tr><td><a class="exercise-link" href="bodyweight-squats/">Bodyweight Squats</a></td><td>4 &times; 20</td></tr>
+              <tr><td><a class="exercise-link" href="wall-sit/">Wall Sit</a></td><td>3 &times; 35s</td></tr>
+              <tr><td><a class="exercise-link" href="calf-raises-single-leg/">Single-Leg Calf Raises</a></td><td>3 &times; 12 each</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(17)">Mark Complete</button>
+        </div>
+      </div>
+
+      <!-- Day 18 -->
+      <div class="day-card" id="card-day-18">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 18 — Thu</span>
+          <div class="day-card__meta">
+            <span class="day-card__type day-card__type--rest">Active Rest</span>
+            <span class="day-card__time">~25 min</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <p class="rest-message">Active Recovery</p>
+          <p class="rest-note">30 min walk + full body stretching. Concentrate on wrists, shoulders, and ankle dorsiflexion.</p>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(18)">Mark Complete</button>
+        </div>
+      </div>
+
+      <!-- Day 19 -->
+      <div class="day-card" id="card-day-19">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 19 — Fri</span>
+          <div class="day-card__meta">
+            <span class="day-card__type">Core &amp; Lateral Stability</span>
+            <span class="day-card__time">~32 min</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <table class="exercise-table">
+            <thead><tr><th>Exercise</th><th>Volume</th></tr></thead>
+            <tbody>
+              <tr><td><a class="exercise-link" href="side-plank/">Side Plank</a></td><td>3 &times; 20s each</td></tr>
+              <tr><td><a class="exercise-link" href="bicycle-crunches/">Bicycle Crunches</a></td><td>4 &times; 12 each</td></tr>
+              <tr><td><a class="exercise-link" href="russian-twists/">Russian Twists</a></td><td>4 &times; 20 each</td></tr>
+              <tr><td><a class="exercise-link" href="lying-leg-raises/">Lying Leg Raises</a></td><td>4 &times; 10</td></tr>
+              <tr><td><a class="exercise-link" href="mountain-climbers/">Mountain Climbers</a></td><td>3 &times; 15 each</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(19)">Mark Complete</button>
+        </div>
+      </div>
+
+      <!-- Day 20 -->
+      <div class="day-card" id="card-day-20">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 20 — Sat</span>
+          <div class="day-card__meta">
+            <span class="day-card__type">Cardio Endurance</span>
+            <span class="day-card__time">~35 min</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <table class="exercise-table">
+            <thead><tr><th>Exercise</th><th>Volume</th></tr></thead>
+            <tbody>
+              <tr><td><a class="exercise-link" href="burpees/">Burpees</a></td><td>4 &times; 8</td></tr>
+              <tr><td><a class="exercise-link" href="jumping-jacks/">Jumping Jacks</a></td><td>4 &times; 40</td></tr>
+              <tr><td><a class="exercise-link" href="high-knees/">High Knees</a></td><td>4 &times; 30s</td></tr>
+              <tr><td><a class="exercise-link" href="push-ups-full/">Push-Ups (standard)</a></td><td>3 &times; 6</td></tr>
+              <tr><td><a class="exercise-link" href="bodyweight-squats/">Bodyweight Squats</a></td><td>3 &times; 20</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(20)">Mark Complete</button>
+        </div>
+      </div>
+
+      <!-- Day 21 -->
+      <div class="day-card" id="card-day-21">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 21 — Sun</span>
+          <div class="day-card__meta">
+            <span class="day-card__type day-card__type--rest">Full Rest</span>
+            <span class="day-card__time">Relax</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <p class="rest-message">3 Weeks Done</p>
+          <p class="rest-note">3 weeks of pure discipline completed. 1 week remains. Prepare your mind for the final push.</p>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(21)">Mark Complete</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────── WEEK 4 ──────── -->
+    <div class="week-header">
+      <span class="week-header__number">04</span>
+      <span class="week-header__title">Week Four — Pushing Limits</span>
+      <span class="week-header__focus">Sets: 5–6 &bull; Rest: 45s &bull; Focus: Peak Performance</span>
+    </div>
+    <p class="week-intro">The final progressive overload push. Maximum muscular endurance, full explosive squats, and preparation for the Day 30 Fitness Test.</p>
+
+    <div class="days-grid">
+      <!-- Day 22 -->
+      <div class="day-card" id="card-day-22">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 22 — Mon</span>
+          <div class="day-card__meta">
+            <span class="day-card__type">Upper Body Blast</span>
+            <span class="day-card__time">~35 min</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <table class="exercise-table">
+            <thead><tr><th>Exercise</th><th>Volume</th></tr></thead>
+            <tbody>
+              <tr><td><a class="exercise-link" href="push-ups-full/">Push-Ups (standard)</a></td><td>4 &times; 10</td></tr>
+              <tr><td><a class="exercise-link" href="wide-push-ups/">Wide Push-Ups</a></td><td>3 &times; 8</td></tr>
+              <tr><td><a class="exercise-link" href="tricep-dips/">Tricep Dips (chair)</a></td><td>4 &times; 14</td></tr>
+              <tr><td><a class="exercise-link" href="diamond-knee-push-ups/">Diamond Knee Push-Ups</a></td><td>3 &times; 8</td></tr>
+              <tr><td><a class="exercise-link" href="dead-hang/">Dead Hang</a></td><td>4 &times; 25s</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(22)">Mark Complete</button>
+        </div>
+      </div>
+
+      <!-- Day 23 -->
+      <div class="day-card" id="card-day-23">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 23 — Tue</span>
+          <div class="day-card__meta">
+            <span class="day-card__type">Lower Body Intensity</span>
+            <span class="day-card__time">~35 min</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <table class="exercise-table">
+            <thead><tr><th>Exercise</th><th>Volume</th></tr></thead>
+            <tbody>
+              <tr><td><a class="exercise-link" href="bodyweight-squats/">Bodyweight Squats</a></td><td>4 &times; 25</td></tr>
+              <tr><td><a class="exercise-link" href="walking-lunges/">Walking Lunges</a></td><td>3 &times; 12 each</td></tr>
+              <tr><td><a class="exercise-link" href="single-leg-glute-bridge/">Single-Leg Glute Bridge</a></td><td>3 &times; 10 each</td></tr>
+              <tr><td><a class="exercise-link" href="wall-sit/">Wall Sit</a></td><td>3 &times; 40s</td></tr>
+              <tr><td><a class="exercise-link" href="jump-squats/">Jump Squats</a></td><td>3 &times; 8</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(23)">Mark Complete</button>
+        </div>
+      </div>
+
+      <!-- Day 24 -->
+      <div class="day-card" id="card-day-24">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 24 — Wed</span>
+          <div class="day-card__meta">
+            <span class="day-card__type day-card__type--rest">Active Rest</span>
+            <span class="day-card__time">~25 min</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <p class="rest-message">Active Recovery</p>
+          <p class="rest-note">30 min walk + full mobility session. Focus on breathing and hip flexor lengthening.</p>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(24)">Mark Complete</button>
+        </div>
+      </div>
+
+      <!-- Day 25 -->
+      <div class="day-card" id="card-day-25">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 25 — Thu</span>
+          <div class="day-card__meta">
+            <span class="day-card__type">Full Body Circuit</span>
+            <span class="day-card__time">~35 min</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <table class="exercise-table">
+            <thead><tr><th>Exercise</th><th>Volume</th></tr></thead>
+            <tbody>
+              <tr><td><a class="exercise-link" href="push-ups-full/">Push-Ups (standard)</a></td><td>4 &times; 10</td></tr>
+              <tr><td><a class="exercise-link" href="bodyweight-squats/">Bodyweight Squats</a></td><td>4 &times; 22</td></tr>
+              <tr><td><a class="exercise-link" href="plank-hold/">Plank Hold</a></td><td>3 &times; 45s</td></tr>
+              <tr><td><a class="exercise-link" href="walking-lunges/">Walking Lunges</a></td><td>3 &times; 10 each</td></tr>
+              <tr><td><a class="exercise-link" href="superman-hold/">Superman Hold</a></td><td>3 &times; 20s</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(25)">Mark Complete</button>
+        </div>
+      </div>
+
+      <!-- Day 26 -->
+      <div class="day-card" id="card-day-26">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 26 — Fri</span>
+          <div class="day-card__meta">
+            <span class="day-card__type">Core &amp; Spinal Armor</span>
+            <span class="day-card__time">~35 min</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <table class="exercise-table">
+            <thead><tr><th>Exercise</th><th>Volume</th></tr></thead>
+            <tbody>
+              <tr><td><a class="exercise-link" href="hollow-body-hold/">Hollow Body Hold</a></td><td>3 &times; 25s</td></tr>
+              <tr><td><a class="exercise-link" href="mountain-climbers/">Mountain Climbers</a></td><td>4 &times; 15 each</td></tr>
+              <tr><td><a class="exercise-link" href="side-plank/">Side Plank</a></td><td>3 &times; 25s each</td></tr>
+              <tr><td><a class="exercise-link" href="russian-twists/">Russian Twists</a></td><td>4 &times; 20 each</td></tr>
+              <tr><td><a class="exercise-link" href="lying-leg-raises/">Lying Leg Raises</a></td><td>3 &times; 12</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(26)">Mark Complete</button>
+        </div>
+      </div>
+
+      <!-- Day 27 -->
+      <div class="day-card" id="card-day-27">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 27 — Sat</span>
+          <div class="day-card__meta">
+            <span class="day-card__type">HIIT &amp; Stamina</span>
+            <span class="day-card__time">~38 min</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <table class="exercise-table">
+            <thead><tr><th>Exercise</th><th>Volume</th></tr></thead>
+            <tbody>
+              <tr><td><a class="exercise-link" href="burpees/">Burpees</a></td><td>4 &times; 10</td></tr>
+              <tr><td><a class="exercise-link" href="jumping-jacks/">Jumping Jacks</a></td><td>4 &times; 45</td></tr>
+              <tr><td><a class="exercise-link" href="high-knees/">High Knees</a></td><td>4 &times; 35s</td></tr>
+              <tr><td><a class="exercise-link" href="push-ups-full/">Push-Ups</a></td><td>3 &times; 8</td></tr>
+              <tr><td><a class="exercise-link" href="jump-squats/">Jump Squats</a></td><td>3 &times; 10</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(27)">Mark Complete</button>
+        </div>
+      </div>
+
+      <!-- Day 28 -->
+      <div class="day-card" id="card-day-28">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 28 — Sun</span>
+          <div class="day-card__meta">
+            <span class="day-card__type day-card__type--rest">Full Rest</span>
+            <span class="day-card__time">Relax</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <p class="rest-message">Pre-Test Rest</p>
+          <p class="rest-note">Full rest before the final two days. Sleep at least 8 hours. Hydrate thoroughly.</p>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(28)">Mark Complete</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────── FINAL 2 DAYS ──────── -->
+    <div class="week-header">
+      <span class="week-header__number" style="color: var(--red);">&#9733;</span>
+      <span class="week-header__title">Final Days — Culmination &amp; Benchmark</span>
+      <span class="week-header__focus">Day 29–30</span>
+    </div>
+
+    <div class="days-grid">
+      <!-- Day 29 -->
+      <div class="day-card" id="card-day-29">
+        <div class="day-card__header">
+          <span class="day-card__day">Day 29 — Mon</span>
+          <div class="day-card__meta">
+            <span class="day-card__type">Full Body Blast</span>
+            <span class="day-card__time">~40 min</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <table class="exercise-table">
+            <thead><tr><th>Exercise</th><th>Volume</th></tr></thead>
+            <tbody>
+              <tr><td><a class="exercise-link" href="push-ups-full/">Push-Ups (standard)</a></td><td>4 &times; 10</td></tr>
+              <tr><td><a class="exercise-link" href="bodyweight-squats/">Bodyweight Squats</a></td><td>4 &times; 25</td></tr>
+              <tr><td><a class="exercise-link" href="tricep-dips/">Tricep Dips</a></td><td>3 &times; 12</td></tr>
+              <tr><td><a class="exercise-link" href="burpees/">Burpees</a></td><td>3 &times; 8</td></tr>
+              <tr><td><a class="exercise-link" href="walking-lunges/">Walking Lunges</a></td><td>3 &times; 12 each</td></tr>
+              <tr><td><a class="exercise-link" href="plank-hold/">Plank Hold</a></td><td>3 &times; 45s</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(29)">Mark Complete</button>
+        </div>
+      </div>
+
+      <!-- Day 30 -->
+      <div class="day-card" id="card-day-30">
+        <div class="day-card__header" style="background: var(--red);">
+          <span class="day-card__day">Day 30 — Tue</span>
+          <div class="day-card__meta">
+            <span class="day-card__type" style="color: var(--white);">Fitness Test</span>
+            <span class="day-card__time" style="background: var(--black);">~35 min</span>
+          </div>
+        </div>
+        <div class="day-card__body">
+          <table class="exercise-table">
+            <thead><tr><th>Benchmark Test</th><th>Your Score</th></tr></thead>
+            <tbody>
+              <tr><td><a class="exercise-link" href="push-ups-full/">Max Push-Ups (1 unbroken set)</a></td><td>Record reps</td></tr>
+              <tr><td><a class="exercise-link" href="bodyweight-squats/">Max Bodyweight Squats (2 min)</a></td><td>Record reps</td></tr>
+              <tr><td><a class="exercise-link" href="plank-hold/">Max Plank Hold</a></td><td>Record seconds</td></tr>
+              <tr><td><a class="exercise-link" href="dead-hang/">Max Dead Hang Hold</a></td><td>Record seconds</td></tr>
+              <tr><td><a class="exercise-link" href="tricep-dips/">Max Chair Tricep Dips</a></td><td>Record reps</td></tr>
+              <tr><td><a class="exercise-link" href="wall-sit/">Wall Sit Hold</a></td><td>Record seconds</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="day-card__footer">
+          <span class="day-check-status">Incomplete</span>
+          <button class="day-check-btn" onclick="toggleDay(30)">Mark Complete</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- SECTION 05: 3-MONTH PROGRESSION ROADMAP (SQUATWOLF)     -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <div class="section-bar" id="section-roadmap">
+      <div class="section-bar__left">
+        <span class="section-bar__number">05</span>
+        <span class="section-bar__title">Beyond 30 Days — 3-Month Roadmap</span>
+      </div>
+      <span class="section-bar__tag">Squatwolf Skill Progression Path</span>
+    </div>
+    <p class="section-intro">Completing Day 30 is the beginning of your calisthenics journey. Squatwolf's long-term roadmap outlines how to transition from basic endurance into advanced gymnastics and strength skills over the next 60 days.</p>
+
+    <div class="roadmap-grid">
+      <div class="roadmap-col">
+        <span class="roadmap-col__tag">Month 01 (Completed)</span>
+        <h3 class="roadmap-col__title">Foundational Control</h3>
+        <ul class="roadmap-col__list">
+          <li><span>Standard Push-Ups</span> <span>3&times;10 clean</span></li>
+          <li><span>Bodyweight Squats</span> <span>3&times;25 deep</span></li>
+          <li><span>Forearm Plank</span> <span>60s rigid line</span></li>
+          <li><span>Dead Hang Hold</span> <span>30s decompression</span></li>
+          <li><span>Spine Proprioception</span> <span>Neutral pelvis</span></li>
+        </ul>
+      </div>
+
+      <div class="roadmap-col">
+        <span class="roadmap-col__tag">Month 02 (Next Step)</span>
+        <h3 class="roadmap-col__title">Foundation Reinforcement</h3>
+        <ul class="roadmap-col__list">
+          <li><span>Pike Push-Ups</span> <span>4&times;8 (shoulder strength)</span></li>
+          <li><span>Bar / Door Pull-Ups</span> <span>4&times;6–10 (lat power)</span></li>
+          <li><span>Parallel / Chair Dips</span> <span>4&times;12 (deeper stretch)</span></li>
+          <li><span>Hollow Body Hold</span> <span>4&times;30s (gymnastics core)</span></li>
+          <li><span>Reverse Lunges</span> <span>4&times;15 each leg</span></li>
+        </ul>
+      </div>
+
+      <div class="roadmap-col">
+        <span class="roadmap-col__tag">Month 03 (Advanced)</span>
+        <h3 class="roadmap-col__title">Skills &amp; Gymnastics</h3>
+        <ul class="roadmap-col__list">
+          <li><span>Wall Handstand Holds</span> <span>3&times;30s (overhead balance)</span></li>
+          <li><span>Tuck L-Sit on Floor</span> <span>3&times;15s (hip compression)</span></li>
+          <li><span>Assisted Pistol Squats</span> <span>3&times;5 each (unilateral legs)</span></li>
+          <li><span>Archer Push-Ups</span> <span>3&times;6 each (lever strength)</span></li>
+          <li><span>Gymnastics Ring Work</span> <span>Tension control</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- SECTION 06: EXERCISE GUIDE FOLDERS                      -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <div class="section-bar" id="section-folders">
+      <div class="section-bar__left">
+        <span class="section-bar__number">06</span>
+        <span class="section-bar__title">Exercise Guide — Image Folders</span>
+      </div>
+      <span class="section-bar__tag">40 Dedicated Folders</span>
+    </div>
+    <p class="section-intro">Every exercise has its own directory in this directory (<code>./</code>). Simply drop demonstration images (e.g. <code>guide.jpg</code>, <code>01.jpg</code>, <code>starting-position.jpg</code>) into any folder, and clicking the exercise anywhere on this site will instantly display your photos.</p>
+
+    <div class="guide-section">
+      <div class="guide-grid">
+        <a class="guide-item exercise-link" href="arm-circles/"><span>Arm Circles</span><span class="guide-item__folder">/arm-circles</span></a>
+        <a class="guide-item exercise-link" href="bicycle-crunches/"><span>Bicycle Crunches</span><span class="guide-item__folder">/bicycle-crunches</span></a>
+        <a class="guide-item exercise-link" href="bird-dog/"><span>Bird Dog</span><span class="guide-item__folder">/bird-dog</span></a>
+        <a class="guide-item exercise-link" href="bodyweight-squats/"><span>Bodyweight Squats</span><span class="guide-item__folder">/bodyweight-squats</span></a>
+        <a class="guide-item exercise-link" href="burpees/"><span>Burpees</span><span class="guide-item__folder">/burpees</span></a>
+        <a class="guide-item exercise-link" href="calf-raises-single-leg/"><span>Calf Raises (Single Leg)</span><span class="guide-item__folder">/calf-raises-single-leg</span></a>
+        <a class="guide-item exercise-link" href="cat-cow-stretch/"><span>Cat-Cow Stretch</span><span class="guide-item__folder">/cat-cow-stretch</span></a>
+        <a class="guide-item exercise-link" href="dead-bug/"><span>Dead Bug</span><span class="guide-item__folder">/dead-bug</span></a>
+        <a class="guide-item exercise-link" href="dead-hang/"><span>Dead Hang</span><span class="guide-item__folder">/dead-hang</span></a>
+        <a class="guide-item exercise-link" href="deep-squat-hold/"><span>Deep Squat Hold</span><span class="guide-item__folder">/deep-squat-hold</span></a>
+        <a class="guide-item exercise-link" href="diamond-knee-push-ups/"><span>Diamond Knee Push-Ups</span><span class="guide-item__folder">/diamond-knee-push-ups</span></a>
+        <a class="guide-item exercise-link" href="forward-lunges/"><span>Forward Lunges</span><span class="guide-item__folder">/forward-lunges</span></a>
+        <a class="guide-item exercise-link" href="glute-bridges/"><span>Glute Bridges</span><span class="guide-item__folder">/glute-bridges</span></a>
+        <a class="guide-item exercise-link" href="high-knees/"><span>High Knees</span><span class="guide-item__folder">/high-knees</span></a>
+        <a class="guide-item exercise-link" href="hip-circles/"><span>Hip Circles</span><span class="guide-item__folder">/hip-circles</span></a>
+        <a class="guide-item exercise-link" href="hollow-body-hold/"><span>Hollow Body Hold</span><span class="guide-item__folder">/hollow-body-hold</span></a>
+        <a class="guide-item exercise-link" href="incline-push-ups/"><span>Incline Push-Ups</span><span class="guide-item__folder">/incline-push-ups</span></a>
+        <a class="guide-item exercise-link" href="inchworms/"><span>Inchworms</span><span class="guide-item__folder">/inchworms</span></a>
+        <a class="guide-item exercise-link" href="jump-squats/"><span>Jump Squats</span><span class="guide-item__folder">/jump-squats</span></a>
+        <a class="guide-item exercise-link" href="jumping-jacks/"><span>Jumping Jacks</span><span class="guide-item__folder">/jumping-jacks</span></a>
+        <a class="guide-item exercise-link" href="knee-push-ups/"><span>Knee Push-Ups</span><span class="guide-item__folder">/knee-push-ups</span></a>
+        <a class="guide-item exercise-link" href="leg-swings/"><span>Leg Swings</span><span class="guide-item__folder">/leg-swings</span></a>
+        <a class="guide-item exercise-link" href="lying-leg-raises/"><span>Lying Leg Raises</span><span class="guide-item__folder">/lying-leg-raises</span></a>
+        <a class="guide-item exercise-link" href="mountain-climbers/"><span>Mountain Climbers</span><span class="guide-item__folder">/mountain-climbers</span></a>
+        <a class="guide-item exercise-link" href="plank-hold/"><span>Plank Hold</span><span class="guide-item__folder">/plank-hold</span></a>
+        <a class="guide-item exercise-link" href="pull-ups/"><span>Pull-Ups (Assisted)</span><span class="guide-item__folder">/pull-ups</span></a>
+        <a class="guide-item exercise-link" href="push-ups-full/"><span>Push-Ups (Full Standard)</span><span class="guide-item__folder">/push-ups-full</span></a>
+        <a class="guide-item exercise-link" href="reverse-lunges/"><span>Reverse Lunges</span><span class="guide-item__folder">/reverse-lunges</span></a>
+        <a class="guide-item exercise-link" href="russian-twists/"><span>Russian Twists</span><span class="guide-item__folder">/russian-twists</span></a>
+        <a class="guide-item exercise-link" href="shoulder-taps/"><span>Shoulder Taps</span><span class="guide-item__folder">/shoulder-taps</span></a>
+        <a class="guide-item exercise-link" href="side-plank/"><span>Side Plank</span><span class="guide-item__folder">/side-plank</span></a>
+        <a class="guide-item exercise-link" href="single-leg-glute-bridge/"><span>Single-Leg Glute Bridge</span><span class="guide-item__folder">/single-leg-glute-bridge</span></a>
+        <a class="guide-item exercise-link" href="sit-ups/"><span>Sit-Ups</span><span class="guide-item__folder">/sit-ups</span></a>
+        <a class="guide-item exercise-link" href="standing-calf-raises/"><span>Standing Calf Raises</span><span class="guide-item__folder">/standing-calf-raises</span></a>
+        <a class="guide-item exercise-link" href="superman-hold/"><span>Superman Hold</span><span class="guide-item__folder">/superman-hold</span></a>
+        <a class="guide-item exercise-link" href="tricep-dips/"><span>Tricep Dips</span><span class="guide-item__folder">/tricep-dips</span></a>
+        <a class="guide-item exercise-link" href="walking-lunges/"><span>Walking Lunges</span><span class="guide-item__folder">/walking-lunges</span></a>
+        <a class="guide-item exercise-link" href="wall-push-ups/"><span>Wall Push-Ups</span><span class="guide-item__folder">/wall-push-ups</span></a>
+        <a class="guide-item exercise-link" href="wall-sit/"><span>Wall Sit</span><span class="guide-item__folder">/wall-sit</span></a>
+        <a class="guide-item exercise-link" href="wide-push-ups/"><span>Wide Push-Ups</span><span class="guide-item__folder">/wide-push-ups</span></a>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <!-- SECTION 07: FAQS & PROGRAM NOTES                        -->
+    <!-- ════════════════════════════════════════════════════════ -->
+    <div class="section-bar" id="section-faqs">
+      <div class="section-bar__left">
+        <span class="section-bar__number">07</span>
+        <span class="section-bar__title">Beginner FAQs &amp; Scientific Notes</span>
+      </div>
+      <span class="section-bar__tag">Squatwolf Fitness FAQ</span>
+    </div>
+
+    <div class="faq-grid">
+      <div class="faq-card">
+        <h3 class="faq-card__q">How long should a beginner session last?</h3>
+        <p class="faq-card__a">Keep your calisthenics sessions to 25–40 minutes total, including a 5-minute dynamic warmup and 5-minute cooldown. Overtraining beginner tendons and connective tissue leads to fatigue without added benefit.</p>
+      </div>
+      <div class="faq-card">
+        <h3 class="faq-card__q">Can you self-learn calisthenics safely?</h3>
+        <p class="faq-card__a">Yes. Bodyweight movements rely on natural biomechanical patterns. Record short video clips of your push-ups and squats to verify neutral spine, straight neck, and full range of motion. Self-awareness is key.</p>
+      </div>
+      <div class="faq-card">
+        <h3 class="faq-card__q">What should I do if an exercise is too difficult?</h3>
+        <p class="faq-card__a">Step back one regression tier: Full push-ups &rarr; Knee push-ups &rarr; Incline push-ups &rarr; Wall push-ups. Never force reps with poor form; leverage angle adjustment is the secret of calisthenics.</p>
+      </div>
+      <div class="faq-card">
+        <h3 class="faq-card__q">How long should I rest between sets?</h3>
+        <p class="faq-card__a">Take 60 to 90 seconds of rest between sets in Weeks 1 and 2. In Weeks 3 and 4, drop rest to 45–60 seconds to stimulate muscular endurance and cardiovascular conditioning.</p>
+      </div>
+      <div class="faq-card">
+        <h3 class="faq-card__q">What is proper breathing during reps?</h3>
+        <p class="faq-card__a">Inhale during the eccentric phase (lowering yourself down in a push-up or squat). Exhale forcefully through pursed lips during the concentric phase (pushing or standing up). Never hold your breath.</p>
+      </div>
+      <div class="faq-card">
+        <h3 class="faq-card__q">How should I approach nutrition for calisthenics?</h3>
+        <p class="faq-card__a">Focus on timing and quality. Eat a carbohydrate snack 60–90 min before training for muscular glycogen, and consume a protein-rich meal within 45 min after training for myofibrillar repair.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- FOOTER                                                  -->
+  <!-- ════════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div>30-Day Calisthenics Program &bull; Zero Equipment &bull; Swiss International Typographic Style</div>
+    <div>Reference: <a href="https://squatwolf.com/blogs/fitness/calisthenics-beginners" target="_blank" rel="noopener">Squatwolf Calisthenics Guide</a></div>
+  </footer>
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- IMAGE PREVIEW OVERLAY                                   -->
+  <!-- ════════════════════════════════════════════════════════ -->
+  <div class="overlay" id="exerciseOverlay">
+    <div class="overlay__header">
+      <span class="overlay__title" id="overlayTitle">Exercise</span>
+      <button class="overlay__close" id="overlayClose">Close &times;</button>
+    </div>
+    <div class="overlay__folder-path" id="overlayPath"></div>
+    <div class="overlay__gallery" id="overlayGallery"></div>
+  </div>
+
+  <script>
+    /*
+     * 30-Day Calisthenics Interactive Tracker & Image Preview System
+     */
+
+    // --- DAY COMPLETION TRACKING WITH LOCALSTORAGE ---
+    const STORAGE_KEY = 'calisthenics_30day_progress';
+    let completedDays = {};
+
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) completedDays = JSON.parse(stored);
+    } catch (e) {
+      console.warn('LocalStorage not accessible', e);
+    }
+
+    function updateProgressUI() {
+      let count = 0;
+      for (let day = 1; day <= 30; day++) {
+        const card = document.getElementById('card-day-' + day);
+        if (!card) continue;
+        const btn = card.querySelector('.day-check-btn');
+        const status = card.querySelector('.day-check-status');
+
+        if (completedDays[day]) {
+          count++;
+          card.classList.add('day-card--completed');
+          if (btn) btn.textContent = 'Completed ✓';
+          if (status) status.textContent = 'Done';
+        } else {
+          card.classList.remove('day-card--completed');
+          if (btn) btn.textContent = 'Mark Complete';
+          if (status) status.textContent = 'Incomplete';
+        }
+      }
+
+      const countEl = document.getElementById('progressCount');
+      const barEl = document.getElementById('progressBar');
+      if (countEl) countEl.textContent = count;
+      if (barEl) barEl.style.width = ((count / 30) * 100) + '%';
+    }
+
+    window.toggleDay = function(day) {
+      completedDays[day] = !completedDays[day];
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(completedDays));
+      } catch (e) {}
+      updateProgressUI();
+    };
+
+    // Run on initial page load
+    updateProgressUI();
+
+    // --- EXERCISE IMAGE PREVIEW OVERLAY ---
+    const IMAGE_EXTENSIONS = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
+    const STANDARD_NAMES = [
+      'guide', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10',
+      'starting-position', 'midpoint', 'end-position',
+      'step-1', 'step-2', 'step-3',
+      'front', 'side', 'form'
+    ];
+
+    const overlay = document.getElementById('exerciseOverlay');
+    const overlayTitle = document.getElementById('overlayTitle');
+    const overlayPath = document.getElementById('overlayPath');
+    const overlayGallery = document.getElementById('overlayGallery');
+    const overlayClose = document.getElementById('overlayClose');
+
+    document.querySelectorAll('.exercise-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const folder = this.getAttribute('href');
+        const name = this.textContent.replace('↗', '').trim();
+        openExercisePreview(name, folder);
+      });
+    });
+
+    overlayClose.addEventListener('click', closeOverlay);
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) closeOverlay();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeOverlay();
+    });
+
+    function closeOverlay() {
+      overlay.classList.remove('overlay--active');
+      document.body.style.overflow = '';
+    }
+
+    async function openExercisePreview(name, folder) {
+      overlayTitle.textContent = name;
+      overlayPath.textContent = 'Local Folder Path: ' + folder;
+      overlayGallery.innerHTML = '<div class="overlay__empty">Scanning folder for images...</div>';
+      overlay.classList.add('overlay--active');
+      document.body.style.overflow = 'hidden';
+
+      const foundImages = [];
+
+      for (const baseName of STANDARD_NAMES) {
+        for (const ext of IMAGE_EXTENSIONS) {
+          const url = folder + baseName + '.' + ext;
+          const exists = await imageExists(url);
+          if (exists) {
+            foundImages.push({ url, label: baseName + '.' + ext });
+            break;
+          }
+        }
+      }
+
+      if (foundImages.length === 0) {
+        overlayGallery.innerHTML = `
+          <div class="overlay__empty">
+            No demonstration images found in this folder yet.<br>
+            To show photos here, drop your files into:<br>
+            <strong style="color: #FFF; font-size: 16px;">${folder}</strong><br><br>
+            Supported file names:<br>
+            <code style="color: #FF8B87;">guide.jpg &bull; 01.jpg &ndash; 10.jpg &bull; starting-position.jpg &bull; midpoint.jpg &bull; form.jpg</code><br><br>
+            Supported formats: JPG, PNG, WEBP, GIF
+          </div>
+        `;
+      } else {
+        overlayGallery.innerHTML = '';
+        foundImages.forEach(img => {
+          const wrapper = document.createElement('div');
+          const imgEl = document.createElement('img');
+          imgEl.src = img.url;
+          imgEl.alt = name + ' — ' + img.label;
+          imgEl.className = 'overlay__img';
+          const label = document.createElement('div');
+          label.className = 'overlay__img-label';
+          label.textContent = img.label;
+          wrapper.appendChild(imgEl);
+          wrapper.appendChild(label);
+          overlayGallery.appendChild(wrapper);
+        });
+      }
+    }
+
+    function imageExists(url) {
+      return new Promise(resolve => {
+        const img = new Image();
+        img.onload = () => resolve(true);
+        img.onerror = () => resolve(false);
+        img.src = url;
+      });
+    }
+  </script>
+</body>
+</html>
