@@ -265,10 +265,27 @@
       padding: calc(var(--grid) * 2.5) calc(var(--grid) * 1.5);
       text-align: center;
       background: var(--white);
+      position: relative;
     }
 
-    .meal-slot:last-child {
-      border-right: none;
+    @media (min-width: 769px) {
+      .meal-slot:last-child {
+        border-right: none;
+      }
+    }
+
+    .meal-slot--highlight {
+      background: #FFF5F5 !important;
+    }
+
+    .meal-slot--highlight::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--red);
     }
 
     .meal-slot__time {
@@ -325,12 +342,13 @@
       position: relative;
     }
 
-    .principle-card:nth-child(4n) {
-      border-right: none;
-    }
-
-    .principle-card:nth-last-child(-n+4) {
-      border-bottom: none;
+    @media (min-width: 1025px) {
+      .principle-card:nth-child(4n) {
+        border-right: none;
+      }
+      .principle-card:nth-last-child(-n+4) {
+        border-bottom: none;
+      }
     }
 
     .principle-card__num {
@@ -947,13 +965,16 @@
     /* ─── RESPONSIVE ─── */
     @media (max-width: 1024px) {
       .principles-grid { grid-template-columns: repeat(2, 1fr); }
-      .principles-card:nth-child(2n) { border-right: none; }
+      .principle-card { border-right: 1px solid var(--black); border-bottom: 1px solid var(--black); }
+      .principle-card:nth-child(2n) { border-right: none; }
+      .principle-card:nth-last-child(-n+2) { border-bottom: none; }
       .spine-drills { grid-template-columns: repeat(2, 1fr); }
-      .roadmap-grid { grid-template-columns: 1fr; }
-      .roadmap-col { border-right: none; border-bottom: 1px solid var(--black); }
-      .roadmap-col:last-child { border-bottom: none; }
+      .roadmap-grid { grid-template-columns: 1fr; border: 1px solid var(--black); }
+      .roadmap-col { border-right: none !important; border-bottom: 1px solid var(--black) !important; padding: calc(var(--grid) * 2.5); }
+      .roadmap-col:last-child { border-bottom: none !important; }
     }
 
+    /* Mobile & 6.3-inch displays (500px, 412px, 393px, 360px) */
     @media (max-width: 768px) {
       .container {
         padding: 0 calc(var(--grid) * 2);
@@ -1019,31 +1040,78 @@
       }
 
       .header__top { flex-direction: column; }
-      .header__number { font-size: 110px; letter-spacing: -4px; }
-      .header__title { font-size: 38px; letter-spacing: -1px; }
-      .days-grid { grid-template-columns: 1fr; }
-      .meal-grid { grid-template-columns: repeat(3, 1fr); }
-      .meal-slot { border-bottom: 1px solid var(--black); }
-      .meal-slot:nth-child(3) { border-right: none; }
-      .meal-slot:nth-last-child(-n+3) { border-bottom: none; }
-      .section-bar { flex-direction: column; gap: calc(var(--grid) * 1); align-items: flex-start; }
+      .header__number { font-size: 96px; letter-spacing: -3px; line-height: 0.85; }
+      .header__title { font-size: 34px; letter-spacing: -1px; line-height: 1.05; }
+      .header__subtitle { font-size: 16px; line-height: 1.45; }
+
+      .days-grid { grid-template-columns: 1fr; gap: calc(var(--grid) * 2); }
+
+      /* Bulletproof 2-Column Meal Grid on Mobile */
+      .meal-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        border: 1px solid var(--black) !important;
+      }
+      .meal-slot {
+        border-right: 1px solid var(--black) !important;
+        border-bottom: 1px solid var(--black) !important;
+        padding: calc(var(--grid) * 2) calc(var(--grid) * 1.5) !important;
+      }
+      .meal-slot:nth-child(2n) {
+        border-right: none !important;
+      }
+      .meal-slot:nth-last-child(-n+2) {
+        border-bottom: none !important;
+      }
+
+      .meal-rules-banner {
+        flex-direction: column;
+        gap: 8px;
+        padding: calc(var(--grid) * 1.5);
+      }
+
+      .section-bar {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: calc(var(--grid) * 1.5) calc(var(--grid) * 2);
+      }
+      .section-bar__number { font-size: 32px; }
+      .section-bar__title { font-size: 18px; }
+      .section-bar__tag { display: none; }
+
       .week-header { flex-direction: column; gap: calc(var(--grid) * 1); }
       .week-header__focus { margin-left: 0; }
-      .principles-grid { grid-template-columns: 1fr; }
-      .principle-card { border-right: none; border-bottom: 1px solid var(--black); }
-      .spine-drills { grid-template-columns: 1fr; }
+
+      /* Full crisp borders on principles cards 1 to 7 */
+      .principles-grid {
+        grid-template-columns: 1fr !important;
+        border: 1px solid var(--black) !important;
+        border-top: none !important;
+      }
+      .principle-card {
+        border-right: none !important;
+        border-bottom: 1px solid var(--black) !important;
+        padding: calc(var(--grid) * 2.5) calc(var(--grid) * 2) !important;
+      }
+      .principle-card:last-child {
+        border-bottom: none !important;
+      }
+
+      .spine-box { padding: calc(var(--grid) * 2); }
+      .spine-box__header { flex-direction: column; gap: 6px; }
+      .spine-drills { grid-template-columns: 1fr; gap: calc(var(--grid) * 1.5); }
       .faq-grid { grid-template-columns: 1fr; }
+
+      .guide-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+      .guide-item { padding: 8px 10px; font-size: 11px; }
     }
 
     @media (max-width: 480px) {
       .header__number { font-size: 80px; letter-spacing: -2px; }
       .header__title { font-size: 28px; }
-      .meal-grid { grid-template-columns: repeat(2, 1fr); }
-      .meal-slot:nth-child(3) { border-right: 1px solid var(--black); }
-      .meal-slot:nth-child(even) { border-right: none; }
-      .meal-slot { border-bottom: 1px solid var(--black); }
-      .meal-slot:nth-last-child(-n+2) { border-bottom: none; }
-      .guide-grid { grid-template-columns: 1fr; }
+      .day-card__day { font-size: 14px; }
+      .day-card__time { font-size: 11px; padding: 2px 6px; }
+      .exercise-table { font-size: 14px; }
     }
 
     @media print {
@@ -1138,7 +1206,7 @@
           <span class="meal-slot__label">Pre-Workout</span>
           <span class="meal-slot__note">60–90 min before training. Easily digestible complex carbs.</span>
         </div>
-        <div class="meal-slot" style="background: #FFF9F9; border-left: 2px solid var(--red); border-right: 2px solid var(--red);">
+        <div class="meal-slot meal-slot--highlight">
           <span class="meal-slot__time" style="color: var(--red);">18:30</span>
           <span class="meal-slot__label" style="color: var(--red);">Post-Workout</span>
           <span class="meal-slot__note">Within 45 min after finishing. Critical protein &amp; repair window.</span>
@@ -2323,6 +2391,14 @@
       'front', 'side', 'form'
     ];
 
+    // Explicit registry of uploaded demonstration images
+    const KNOWN_EXERCISE_FILES = {
+      'wall-push-ups': [
+        'Wall Push-Up Progression Diagram.png',
+        'guide.png'
+      ]
+    };
+
     const overlay = document.getElementById('exerciseOverlay');
     const overlayTitle = document.getElementById('overlayTitle');
     const overlayPath = document.getElementById('overlayPath');
@@ -2353,21 +2429,48 @@
 
     async function openExercisePreview(name, folder) {
       overlayTitle.textContent = name;
-      overlayPath.textContent = 'Local Folder Path: ' + folder;
-      overlayGallery.innerHTML = '<div class="overlay__empty">Scanning folder for images...</div>';
+      overlayPath.textContent = 'Folder: ' + folder;
+      overlayGallery.innerHTML = '<div class="overlay__empty">Loading exercise image...</div>';
       overlay.classList.add('overlay--active');
       document.body.style.overflow = 'hidden';
 
       const foundImages = [];
+      const slug = folder.replace(/^\.?\/?(exercises\/)?/, '').replace(/\/$/, '');
 
-      for (const baseName of STANDARD_NAMES) {
-        for (const ext of IMAGE_EXTENSIONS) {
-          const url = folder + baseName + '.' + ext;
-          const exists = await imageExists(url);
-          if (exists) {
-            foundImages.push({ url, label: baseName + '.' + ext });
-            break;
+      // 1. Check known uploaded files for this exercise
+      const specificFiles = KNOWN_EXERCISE_FILES[slug] || [];
+      for (const fileName of specificFiles) {
+        const rawUrl = folder + fileName;
+        const exists = await imageExists(encodeURI(rawUrl));
+        if (exists) {
+          foundImages.push({ url: rawUrl, label: fileName });
+          // If we found the user's primary diagram/guide, stop so we don't display duplicate fallback copies
+          break;
+        }
+      }
+
+      // 2. Fallback to scanning common filename patterns
+      if (foundImages.length === 0) {
+        const seen = new Set();
+        const candidateNames = [
+          ...STANDARD_NAMES,
+          slug,
+          slug.replace(/-/g, ' '),
+          slug.replace(/-/g, '_'),
+          'diagram', 'progression', 'workout', 'exercise'
+        ];
+        for (const baseName of candidateNames) {
+          for (const ext of IMAGE_EXTENSIONS) {
+            const rawUrl = folder + baseName + '.' + ext;
+            if (seen.has(rawUrl)) continue;
+            seen.add(rawUrl);
+            const exists = await imageExists(encodeURI(rawUrl));
+            if (exists) {
+              foundImages.push({ url: rawUrl, label: baseName + '.' + ext });
+              break;
+            }
           }
+          if (foundImages.length >= 4) break; // reasonable limit for preview
         }
       }
 
@@ -2378,8 +2481,8 @@
             To show photos here, drop your files into:<br>
             <strong style="color: #FFF; font-size: 16px;">${folder}</strong><br><br>
             Supported file names:<br>
-            <code style="color: #FF8B87;">guide.jpg &bull; 01.jpg &ndash; 10.jpg &bull; starting-position.jpg &bull; midpoint.jpg &bull; form.jpg</code><br><br>
-            Supported formats: JPG, PNG, WEBP, GIF
+            <code style="color: #FF8B87;">guide.png &bull; Wall Push-Up Progression Diagram.png &bull; 01.jpg &ndash; 10.jpg &bull; starting-position.jpg</code><br><br>
+            Supported formats: PNG, JPG, WEBP, GIF
           </div>
         `;
       } else {
@@ -2387,7 +2490,7 @@
         foundImages.forEach(img => {
           const wrapper = document.createElement('div');
           const imgEl = document.createElement('img');
-          imgEl.src = img.url;
+          imgEl.src = encodeURI(img.url);
           imgEl.alt = name + ' — ' + img.label;
           imgEl.className = 'overlay__img';
           const label = document.createElement('div');
