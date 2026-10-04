@@ -2393,30 +2393,20 @@
 
     // Explicit registry of uploaded demonstration images
     const KNOWN_EXERCISE_FILES = {
-      'wall-push-ups': [
-        'Wall Push-Up Progression Diagram.png',
-        'guide.png'
-      ],
-      'bodyweight-squats': [
-        'Bodyweight Squat Progression Diagram.png',
-        'guide.png'
-      ],
-      'plank-hold': [
-        'Plank Hold Diagram.png',
-        'guide.png'
-      ],
-      'knee-push-ups': [
-        'Knee Push-Ups Progression Diagram.png',
-        'guide.png'
-      ],
-      'dead-hang': [
-        'Dead Hang Diagram.png',
-        'guide.png'
-      ],
-      'glute-bridges': [
-        'Glute Bridge Progression Diagram.png',
-        'guide.png'
-      ]
+      'wall-push-ups': ['guide.png'],
+      'bodyweight-squats': ['guide.png'],
+      'plank-hold': ['guide.png'],
+      'knee-push-ups': ['guide.png'],
+      'dead-hang': ['guide.png'],
+      'glute-bridges': ['guide.png'],
+      'dead-bug': ['guide.png'],
+      'bird-dog': ['guide.png'],
+      'hollow-body-hold': ['guide.png'],
+      'superman-hold': ['guide.png'],
+      'side-plank': ['guide.png'],
+      'incline-push-ups': ['guide.png'],
+      'push-ups-full': ['guide.png'],
+      'wide-push-ups': ['guide.png']
     };
 
     const overlay = document.getElementById('exerciseOverlay');
@@ -2457,8 +2447,8 @@
       const foundImages = [];
       const slug = folder.replace(/^\.?\/?(exercises\/)?/, '').replace(/\/$/, '');
 
-      // 1. Check known uploaded files for this exercise
-      const specificFiles = KNOWN_EXERCISE_FILES[slug] || [];
+      // 1. Check known uploaded files for this exercise (defaults to guide.png)
+      const specificFiles = KNOWN_EXERCISE_FILES[slug] || ['guide.png'];
       for (const fileName of specificFiles) {
         const rawUrl = folder + fileName;
         const exists = await imageExists(encodeURI(rawUrl));
