@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -67,6 +67,12 @@
       text-transform: uppercase;
       font-weight: 700;
       letter-spacing: 0.5px;
+      transition: transform 0.25s ease-in-out;
+      will-change: transform;
+    }
+
+    .nav-bar--hidden {
+      transform: translateY(-100%);
     }
 
     .nav-bar__inner {
@@ -90,6 +96,7 @@
       padding: 4px 6px;
       border-bottom: 2px solid transparent;
       transition: all 0.15s ease;
+      white-space: nowrap;
     }
 
     .nav-link:hover {
@@ -103,6 +110,7 @@
       gap: calc(var(--grid) * 1.5);
       font-size: var(--fs-small);
       color: var(--gray);
+      white-space: nowrap;
     }
 
     .nav-progress__bar {
@@ -947,6 +955,69 @@
     }
 
     @media (max-width: 768px) {
+      .container {
+        padding: 0 calc(var(--grid) * 2);
+      }
+
+      .nav-bar {
+        border-bottom-width: 1px;
+      }
+
+      .nav-bar__inner {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 6px;
+        padding: 5px 0;
+        overflow: hidden;
+      }
+
+      .nav-links {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 5px;
+        flex: 1;
+        min-width: 0;
+        padding-right: 4px;
+      }
+
+      .nav-links::-webkit-scrollbar {
+        display: none;
+      }
+
+      .nav-link {
+        font-size: 11px;
+        padding: 4px 8px;
+        background: var(--gray-bg);
+        border: 1px solid var(--gray-light);
+        border-bottom-width: 1px;
+        flex-shrink: 0;
+      }
+
+      .nav-link:hover, .nav-link:active {
+        background: var(--black);
+        color: var(--white);
+        border-color: var(--black);
+      }
+
+      .nav-progress {
+        flex-shrink: 0;
+        font-size: 11px;
+        gap: 5px;
+        padding-left: 6px;
+        border-left: 1px solid var(--gray-light);
+      }
+
+      .nav-progress__label {
+        display: none;
+      }
+
+      .nav-progress__bar {
+        width: 40px;
+        height: 5px;
+      }
+
       .header__top { flex-direction: column; }
       .header__number { font-size: 110px; letter-spacing: -4px; }
       .header__title { font-size: 38px; letter-spacing: -1px; }
@@ -1000,7 +1071,7 @@
           <a class="nav-link" href="#section-faqs">07 FAQs</a>
         </div>
         <div class="nav-progress">
-          <span>Completed: <strong id="progressCount">0</strong> / 30</span>
+          <span><span class="nav-progress__label">Completed: </span><strong id="progressCount">0</strong> / 30</span>
           <div class="nav-progress__bar">
             <div class="nav-progress__fill" id="progressBar"></div>
           </div>
@@ -2219,6 +2290,29 @@
 
     // Run on initial page load
     updateProgressUI();
+
+    // --- SMART AUTO-HIDE NAV ON SCROLL DOWN, REVEAL ON SCROLL UP ---
+    let lastScrollY = window.scrollY;
+    let scrollTicking = false;
+    const navBarEl = document.querySelector('.nav-bar');
+
+    window.addEventListener('scroll', () => {
+      if (!scrollTicking) {
+        window.requestAnimationFrame(() => {
+          const currentY = window.scrollY;
+          if (currentY > 120 && currentY > lastScrollY) {
+            // Scrolling down -> hide navbar so workouts occupy 100% of mobile screen
+            navBarEl.classList.add('nav-bar--hidden');
+          } else if (currentY < lastScrollY) {
+            // Scrolling up -> reveal navbar smoothly
+            navBarEl.classList.remove('nav-bar--hidden');
+          }
+          lastScrollY = Math.max(0, currentY);
+          scrollTicking = false;
+        });
+        scrollTicking = true;
+      }
+    }, { passive: true });
 
     // --- EXERCISE IMAGE PREVIEW OVERLAY ---
     const IMAGE_EXTENSIONS = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
